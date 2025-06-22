@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, doc, updateDoc, deleteDoc, addDoc, writeBatch } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, addDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../../libs/firebase';
 
 interface CatalogItem {

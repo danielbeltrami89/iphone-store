@@ -1,6 +1,6 @@
 // pages/index.tsx
 import { useEffect, useState } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import Image from 'next/image';
 import { db } from '../../libs/firebase';
 
@@ -55,7 +55,7 @@ export default function Home() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
       {Object.entries(grouped)
       .sort(([a], [b]) => a.localeCompare(b)) // Ordena por modelo
-      .map(([model, { url, colors, capacities, minPrice }]) => (
+      .map(([model, { colors, capacities, minPrice }]) => (
         <div key={model} className="border rounded-2xl p-4 shadow-md">
           <Image
             src={`/images/iphones/${slugify(model)}.png`}
