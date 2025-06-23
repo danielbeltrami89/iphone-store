@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "list-iphone-store",
+  "private_key_id": "759b3056b2e87bd35fa5aca5914a64c34f98e1d8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7BjbSH4G1NK4h\n8u2a+KQIt9ZAnz/yMVIc/2rMftUtC/G0yZOcEUHliXu7LOBKHm2oVafblo9Ibq0E\nC9t0BCx0sVkaIiOYmgyxzG5Tc2OyV1Ezit2mYdJjyHDT60MtaelX8ZQNRFR9VNe1\ndmX2KQV7m2jFx/wTFnjhwMP47+5zMTW/cw9A4aUx87zvTUhWvlre2NWokpE78vRk\n2OpDTVrj64CG7BEESNvqiUAAXn2x/gwu5osrnJwRxp4koKOHDXFN/yBzo+W/09Q6\nr1jDRKBRWdIOIE6JE40d910xdPdxMWTikZa2PvkJ/XZz7kuHdj8Dr99noyyg4YGC\nJr7BzThFAgMBAAECggEACUo9iBVHXla3w5+LWYq6RmVjWVU2JvPeOurqq8fGrQ5b\nB+Dvc4ddhgDDSnPoAqaD44jsGQZ5Wl651DagKwe+Cy0Rp2OrIvxoxWtjNSmV+f9H\n9rVFXbg3bC91TOfylhuDTmDSOt2tclOExFKVemaYcbn+UiMlJiMt1ADwR+0bI7hn\n295fAcNmKlZNnWmTC/lOFTMVZCAbxIF9WvxNSV6SaiuXWjvMFDoMQ/Q1XRTrR/az\ndKAzOsQLmPYRZJ/Yae9aeECAlAa0HUP5C/FsUwke7Nz/kdbtuE3B50Gurc0YKLMm\nYFBHmMS1OTGcqpxpTiLPTgFBuLpjTO7i1o9IhiQHLQKBgQD/GEceZplPW7ad8w+Y\nrcNC7heILHNXQXaenp4jVQFhUHMk6k8udReCus/EacLfbHBSdsdVK9Rcl3aO/Gvz\nnXc+uR67fWMooSRKxfpj2JHI5p12J7yYFzvlbjHgJ4FVWUAFVu4weyW1CUO2AG4P\nPlGWU1/L2cVNIdj3frJ+XftzZwKBgQC7sBpFzZ8MPHaoIzsWIVVFkvUoXeKu5axk\n5gLD17UJi1KeDzV7bkvPlaJinxAZwlq8FYpH5mRNHPq1YEGgyK/ZX5/skmgsPRSc\nMbeP7K0+1/iD0Fzr5pFB2TsW8ZdwwZLL54fqEo9lqvmuIGfBCCGq36wGwMTI+vgC\n9L04toD3cwKBgC+akjsEHnwGu2+CWli9pICq+c05rlSMLNyw8QXa6SUF5FbxOtGK\nnFaTEg6vReR30gYxkEU+pqSYx1ErneGacxRLa4bFgWmlmKYzh+R2F86L6rqP88vW\nGiFYjQotlR8eRqo4bL6zXHgKQI6ISgGiOYt6B5h9DSq1tE2LYTffxfrlAoGATvHd\nuyqoEY+FIWfgPIi8w0zzDY2gAYzdnHsbAqFCpscRcyZWipp0DNaVvQHG1e7oF2DA\nD0obOkxML+pS8Hw5aydLr0hNxP3UI3bODR2yKVLSVy9XRmpvAtGKhzYLSwRA6L90\nbcJsyojGCLXcrlbrQmJei2Cd5SObGjMzPB2X1X0CgYEA+s9Qm1jk6MqNgBB9XjZT\nrpkW1KHWL9UKiLBhEKlUVrYhLlqeQYjxWZwJ242tpw0DvlCpLt9aiV8pkDFdmdPx\n5PYArmexmm5/JjTXOTxC6aVEZz29dswazBN8C8yGUD3bqgtMdjbvlCYcoE7RqECC\naTHDRYsbj1nnPQ59Lby/kBY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-qgvye@list-iphone-store.iam.gserviceaccount.com",
+  "client_id": "116470455524255683372",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-qgvye%40list-iphone-store.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
