@@ -17,7 +17,8 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, senha);
       router.push("/admin"); // Redireciona para /admin
-    } catch (err: any) {
+    } catch (err) {
+      console.log(err)
       setErro('E-mail ou senha inválidos');
     } finally {
       setLoading(false);
