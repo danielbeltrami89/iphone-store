@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, doc, updateDoc, addDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../libs/firebase';
+import { auth } from '../libs/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 interface CatalogItem {
     id: string;
@@ -21,6 +23,9 @@ type GroupedItem = {
 };
 
 export default function Admin() {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     const [items, setItems] = useState<CatalogItem[]>([]);
     const [editingKey, setEditingKey] = useState<string | null>(null);
     const [editData, setEditData] = useState<Partial<GroupedItem> & { colors?: { color: string; available: boolean; id: string }[] }>({});
@@ -42,7 +47,16 @@ export default function Admin() {
             setItems(data);
         };
         fetchData();
+
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setUser(user);
+            setLoading(false);
+        });
+        return () => unsubscribe();
     }, []);
+
+    if (loading) return <div>Carregando...</div>;
+    if (!user) return <div>Acesso restrito. Faça login para continuar.</div>;
 
     // Agrupar por modelo/capacidade
     const grouped: GroupedItem[] = [];
@@ -184,14 +198,16 @@ export default function Admin() {
                     </tr>
                 </thead>
                 <tbody>
-                    {groupedSorted.map((group) => {
+                    {groupedSorted.map((group, idx) => {
                         // Filtra apenas as cores disponíveis
+                        const isEditing = editingKey === `${group.model}||${group.capacity}`;
                         const availableColors = group.colors.filter(c => c.available);
+                        const rowClass = idx % 2 === 0 ? "bg-blaxk" : "bg-gray-800"; // alterna as cores
 
                         // Linha de edição
-                        if (editingKey === `${group.model}||${group.capacity}`) {
+                        if (isEditing) {
                             return (
-                                <tr key={group.model + group.capacity}>
+                                <tr key={group.model + group.capacity} className={rowClass}>
                                     <td>
                                         <input
                                             name="model"
@@ -249,7 +265,7 @@ export default function Admin() {
 
                         // Linha normal (apenas cores disponíveis)
                         return (
-                            <tr key={group.model + group.capacity}>
+                            <tr key={group.model + group.capacity} className={rowClass}>
                                 <td>{group.model}</td>
                                 <td>{group.capacity}</td>
                                 <td>
