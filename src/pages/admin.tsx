@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, doc, updateDoc, addDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../libs/firebase';
 import { auth } from '../libs/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 
 interface CatalogItem {
     id: string;
@@ -23,7 +23,7 @@ type GroupedItem = {
 };
 
 export default function Admin() {
-    const [user, setUser] = useState(null);
+const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
     const [items, setItems] = useState<CatalogItem[]>([]);
