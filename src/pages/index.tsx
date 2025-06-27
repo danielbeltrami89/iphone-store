@@ -5,6 +5,7 @@ import { CatalogItem } from '../types/CatalogItem';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { IphoneGrid } from '../components/ProductGrid';
+import LogAnalytics  from '../components/LogAnalytics';
 
 export default function Home() {
   const [iphoneItems, setIphoneItems] = useState<CatalogItem[]>([]);
@@ -21,23 +22,24 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-  const fetchLastUpdate = async () => {
-    const q = query(collection(db, 'iphones'), orderBy('updateAt', 'desc'), limit(1));
-    const snapshot = await getDocs(q);
-    if (!snapshot.empty) {
-      const doc = snapshot.docs[0];
-      const updateAt = doc.get('updateAt');
-      if (updateAt && updateAt.toDate) {
-        setLastUpdate(updateAt.toDate().toLocaleString('pt-BR'));
+    const fetchLastUpdate = async () => {
+      const q = query(collection(db, 'iphones'), orderBy('updateAt', 'desc'), limit(1));
+      const snapshot = await getDocs(q);
+      if (!snapshot.empty) {
+        const doc = snapshot.docs[0];
+        const updateAt = doc.get('updateAt');
+        if (updateAt && updateAt.toDate) {
+          setLastUpdate(updateAt.toDate().toLocaleString('pt-BR'));
+        } else {
+          setLastUpdate('Não disponível');
+        }
       } else {
         setLastUpdate('Não disponível');
       }
-    } else {
-      setLastUpdate('Não disponível');
-    }
-  };
-  fetchLastUpdate();
-}, []);
+    };
+    fetchLastUpdate();
+  }, []);
+
   // Agrupa por modelo > capacidade
   const grouped = iphoneItems.reduce<Record<
     string,
@@ -60,6 +62,7 @@ export default function Home() {
 
   return (
     <div>
+      <LogAnalytics eventName="page_view" eventParams={{ page: "home" }} />
       <Header search={search} setSearch={setSearch} />
       <IphoneGrid grouped={grouped} search={search} />
       <Footer lastUpdate={lastUpdate} />

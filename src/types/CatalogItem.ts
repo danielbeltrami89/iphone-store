@@ -5,4 +5,5 @@ export interface CatalogItem {
   available: boolean;
   price: number;
   url: string;
+  id: string;
 }

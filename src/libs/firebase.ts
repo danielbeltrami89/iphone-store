@@ -1,7 +1,8 @@
-// lib/firebase.ts
+// src/libs/firebase.ts
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWXzE1xdVa7XQruWlQHLK9JtgW-uqkv_4",
@@ -16,7 +17,13 @@ const firebaseConfig = {
 
 // Garante que o app não será inicializado mais de uma vez (Next.js faz hot reload)
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth(app);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { app, db, auth };
+// Analytics só no client
+let analytics;
+if (typeof window !== 'undefined') {
+  analytics = getAnalytics(app);
+}
+
+export { app, db, auth, analytics };

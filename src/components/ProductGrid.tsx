@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
+import LogAnalytics  from '../components/LogAnalytics';
 
 interface IphoneGridProps {
     grouped: Record<
@@ -92,6 +93,7 @@ export function IphoneGrid({ grouped, search }: IphoneGridProps) {
                                 className="mt-3 inline-block bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition"
                             >
                                 Comprar no WhatsApp
+                                <LogAnalytics eventName="click" eventParams={{ page: "home", action: `botao-wp-${model}` }} />
                             </a>
                         </div>
                     );
