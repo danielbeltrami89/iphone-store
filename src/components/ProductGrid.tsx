@@ -11,8 +11,11 @@ interface IphoneGridProps {
 }
 
 const slugify = (text: string) =>
-    text.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
-
+  text
+    .toLowerCase()
+    .replace(/\s+/g, '-')      // substitui espaços por hífen
+    .replace(/[()'"]/g, '');   // remove parênteses e aspas simples/duplas
+    
 export function IphoneGrid({ grouped, search }: IphoneGridProps) {
     // Estado para capacidade selecionada por modelo
     const [selected, setSelected] = useState<Record<string, string>>({});
@@ -50,7 +53,7 @@ export function IphoneGrid({ grouped, search }: IphoneGridProps) {
                     return (
                         <div key={model} className="border rounded-2xl p-4 shadow-md bg-white">
                             <Image
-                                src={url || `/images/iphones/${slugify(model)}.png`}
+                                src={url || `https://firebasestorage.googleapis.com/v0/b/list-iphone-store.firebasestorage.app/o/produtos%2F${slugify(model)}.png?alt=media`}
                                 alt={model}
                                 width={300}
                                 height={300}
